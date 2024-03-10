@@ -9,4 +9,4 @@ The model code has been updated:
 + [about_attention：](https://github.com/anshilaoliu/Hand-torn_code/tree/master/about_attention)
   + [MSCAAttention](https://github.com/anshilaoliu/Hand-torn_code/blob/master/about_attention/MSCAAttention.py)
 + [classic_conv：](https://github.com/anshilaoliu/Hand-torn_code/tree/master/classic_conv)
-  + [AlexNet](
+  + [AlexNet](https://github.com/anshilaoliu/Hand-torn_code/blob/master/classic_conv/AlexNet.py)
