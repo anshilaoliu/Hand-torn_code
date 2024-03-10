@@ -17,9 +17,9 @@ class PatchEmbedding(nn.Module):
         """
 
         :param in_channels: 输入通道数
-        :param patch_size:小方块大小，即每行切几个小方块
+        :param patch_size:小方块大小，即每个小方块大小是 （patch_size x patch_size）
         :param embed_dim:embedding维度，也是卷积切分后的输出维度，等于patch_size*patch_size*in_channels
-        :param patch_num:因为要交换后俩维位置，所以这个才是patch个数，等于切分后每个feature map的尺寸平方
+        :param patch_num:patch个数
         :param dropout:默认0.1
         """
         super(PatchEmbedding, self).__init__()
