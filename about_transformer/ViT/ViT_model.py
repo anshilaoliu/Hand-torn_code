@@ -99,7 +99,7 @@ def test():
     # 随机生成一组张量，可视为3张3通道照片，尺寸224x224
     x = torch.randn(3, 3, 224, 224)
     # 切成16x16个块，每个块14x14大小，转化维度后相当于切14x14=196个patch，8个头6个Encoder，类别假设是10
-    vit_model = ViT(3, 16, 16*16*3, 14*14, 8, "relu", 6, 10)
+    vit_model = ViT(3, 16, 16*16*3, 14*14, 8, "gelu", 6, 10)
     pred = vit_model(x)
     print(x.shape)
     print(pred.shape)
