@@ -31,7 +31,7 @@ class DoubleConv(nn.Module):
 
 
 class UNetPP(nn.Module):
-    def __init__(self, in_channel=3, out_channel=2, features=[64,128,256,512,1024], deep_supervision=True):
+    def __init__(self, in_channel=3, out_channel=2, features=[64, 128, 256, 512, 1024], deep_supervision=False):
         """
 
         :param in_channel:
@@ -43,6 +43,7 @@ class UNetPP(nn.Module):
 
         self.deep_supervision = deep_supervision
 
+        # 下采样的池化层
         self.pool = nn.MaxPool2d(2, 2)
         # 双线性插值进行上采样，也可以通过ConvTranspose2d或者先ConvTranspose2d后插值实现，这里为了方便直接插值
         self.up = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
@@ -118,3 +119,14 @@ class UNetPP(nn.Module):
             output = self.final(x0_4)
             output = self.sigmoid(output)
             return output
+
+
+def test():
+    x = torch.randn(3, 3, 224, 224)
+    model = UNetPP()
+    print(x.shape)
+    print(model(x).shape)
+
+
+if __name__ == '__main__':
+    test()
