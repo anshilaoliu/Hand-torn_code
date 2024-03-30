@@ -17,4 +17,9 @@ The model code has been updated:
   + [CBAM](https://github.com/anshilaoliu/Hand-torn_code/blob/master/about_attention/CBAM.py)
 + [classic_conv：](https://github.com/anshilaoliu/Hand-torn_code/tree/master/classic_conv)
   + [AlexNet](https://github.com/anshilaoliu/Hand-torn_code/blob/master/classic_conv/AlexNet.py)
++ [about_interview](https://github.com/anshilaoliu/Hand-torn_code/tree/master/about_interview)
+  + [Attention](https://github.com/anshilaoliu/Hand-torn_code/blob/master/about_interview/Attention.py)
+  + [Embedding](https://github.com/anshilaoliu/Hand-torn_code/blob/master/about_interview/Embedding.py)
+  + [FFN](https://github.com/anshilaoliu/Hand-torn_code/blob/master/about_interview/FFN.py)
+  + [LayerNorm](https://github.com/anshilaoliu/Hand-torn_code/blob/master/about_interview/LayerNorm.py)
 
