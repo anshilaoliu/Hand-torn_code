@@ -10,6 +10,7 @@ import torch.nn as nn
 
 
 class ChannelAttention(nn.Module):
+    """通道注意力"""
     def __init__(self, in_planes, ratio=8):
         super(ChannelAttention, self).__init__()
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
@@ -29,6 +30,7 @@ class ChannelAttention(nn.Module):
 
 
 class SpatialAttention(nn.Module):
+    """空间注意力"""
     def __init__(self, kernel_size=7):
         super(SpatialAttention, self).__init__()
 
@@ -50,13 +52,15 @@ class CBAMBlock(nn.Module):
         super(CBAMBlock, self).__init__()
         self.channel_attention = ChannelAttention(channel, ratio=ratio)
         self.spatial_attention = SpatialAttention(kernel_size=kernel_size)
+        # 根据你的实际需求来考虑是否残差连接与下采样
         self.channel_down = nn.Conv2d(channel * 2, channel, kernel_size=1)
 
     def forward(self, x):
-        origin_x = x
+        residual = x
         x = x * self.channel_attention(x)
         x = x * self.spatial_attention(x)
-        x = torch.cat((x, origin_x), dim=1)
+
+        x = torch.cat((x, residual), dim=1)
         x = self.channel_down(x)
         return x
 
